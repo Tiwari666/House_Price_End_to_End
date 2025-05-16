@@ -1,0 +1,11 @@
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+catboost
+xgboost
+Flask
+
+#-e . # it maps the setup.py to the current directory
+#-e .[dev] # it maps the setup.py to the current directory and installs the dev dependencies
