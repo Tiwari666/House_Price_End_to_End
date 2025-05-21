@@ -172,3 +172,24 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# ✅ Docker
+.dockerignore
+Dockerfile
+*.tar
+*.img
+
+# ✅ Docker & cloud build logs
+docker-build.log
+container-logs/
+__docker_cache__/
+
+# ✅ Artifacts & trained models
+artifacts/
+*.pkl
+*.npy
+
+# ✅ Render / Railway deployment configs
+render.yaml
+railway.json

@@ -1,11 +1,13 @@
+flask
 pandas
 numpy
-seaborn
-matplotlib
 scikit-learn
 xgboost
+lightgbm
 catboost
-Flask
+seaborn
+matplotlib
+
 
 
 #-e . # it maps the setup.py to the current directory

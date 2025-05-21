@@ -1,0 +1,34 @@
+<!-- FlaskApp/templates/home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Interest Prediction</title>
+</head>
+<body>
+    <h2>Enter Applicant Info:</h2>
+    <form action="/" method="post">
+        Amount Requested: <input type="text" name="amount_requested"><br>
+        Funded by Investors: <input type="text" name="amount_funded_by_investors"><br>
+        Loan Length (36 or 60): <input type="text" name="loan_length"><br>
+        Debt-to-Income Ratio: <input type="text" name="debt_to_income_ratio"><br>
+        Monthly Income: <input type="text" name="monthly_income"><br>
+        FICO Range (avg): <input type="text" name="fico_range"><br>
+        Open Credit Lines: <input type="text" name="open_credit_lines"><br>
+        Revolving Credit Balance: <input type="text" name="revolving_credit_balance"><br>
+        Inquiries Last 6 Mo: <input type="text" name="inquiries_in_the_last_6_months"><br>
+
+        Home Ownership: <input type="text" name="home_ownership"><br>
+        Loan Purpose: <input type="text" name="loan_purpose_grouped"><br>
+        State Region: <input type="text" name="state_region"><br>
+        Employment Length Group (0-3): <input type="text" name="employment_length_group"><br>
+
+        <input type="submit" value="Predict Interest Rate">
+    </form>
+
+    {% if result %}
+    <h3>Predicted Interest Rate: {{ result }}%</h3>
+    {% endif %}
+
+</body>
+</html>
+
