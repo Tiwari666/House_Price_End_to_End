@@ -108,7 +108,7 @@ docker run -p 5000:5000 loan-predictor-app
 
 * `render.yaml` used for automated deployment
 * Connected GitHub repo to Render
-* Live prediction on public URL: [https://dashboard.render.com/web/srv-d0njllmuk2gs73c2aehg/deploys/dep-d0novih5pdvs73b2ejrg](https://lr-bankloan.onrender.com/)
+* Live prediction on public URL: [[https://dashboard.render.com/web/srv-d0njllmuk2gs73c2aehg/deploys/dep-d0novih5pdvs73b2ejrg](https://lr-bankloan.onrender.com/)](https://lr-bankloan.onrender.com/)
 
  **Render Deployed App Screenshot**
 
