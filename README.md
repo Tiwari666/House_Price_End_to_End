@@ -1,9 +1,9 @@
-## Linear Regression Bank Loan: Loan Interest Rate Prediction Web App
 
-A full end-to-end machine learning project that predicts **loan interest rates** based on applicant data. Built using **Python**, **Scikit-learn**, and deployed via **Flask**, **Docker**, and **Render Cloud**.
+# Loan Interest Rate Prediction App
 
----
+A full-stack machine learning project that predicts interest rates for bank loans based on various applicant features. This project includes data preprocessing, model training, Flask-based web interface, Dockerization, and cloud deployment using Render.
 
+--------
 ##  Key Features
 
 * **Data Preprocessing**: Cleaned raw loan data (e.g., missing values, percentage parsing, category grouping)
@@ -13,137 +13,149 @@ A full end-to-end machine learning project that predicts **loan interest rates**
 * **Dockerized**: Built Docker image for consistent deployment
 * **Cloud Deployed**: Hosted using Render for global access
 
+--------
+
+
+---
+
+##  Machine Learning Pipeline
+
+* **Model Used**: Multiple regression models (Ridge, Lasso, Random Forest, Gradient Boosting, XGBoost, LightGBM, CatBoost)
+* **Best Model**: CatBoost (R² = 0.6829)
+* **Features Engineered**:
+
+  * Employment Length Group
+  * State Region
+  * Loan Purpose Grouped
+  * Debt to Income Ratio
+  * FICO Range
+
 ---
 
 ##  Project Structure
 
 ```bash
 LR_BankLoan/
-├── artifacts/                # Saved models (best_model.pkl, preprocessor.pkl)
-├── src/                     # Modular ML pipeline (data ingestion, transformation, training)
+├── artifacts/                  # Saved model + preprocessor
+│   ├── best_model.pkl
+│   └── preprocessor.pkl
+├── FlaskApp/                  # Flask Web App
+│   ├── app.py                 # Main Flask file
+│   ├── templates/
+│   │   └── home.html
+│   └── static/
+├── notebook/                  # Jupyter notebooks (EDA, Modeling, etc.)
+├── src/                       # Source ML pipeline modules
 │   ├── components/
 │   ├── pipeline/
 │   ├── utils.py
-├── FlaskApp/                # Flask app
-│   ├── app.py
-│   ├── templates/home.html
-│   └── static/
-├── notebook/                # EDA, modeling, evaluation notebooks
-├── Dockerfile               # Docker build instructions
-├── .dockerignore            # Avoid unnecessary files in Docker
-├── render.yaml              # Render deployment configuration
-├── requirements.txt         # Python dependencies
-├── .gitignore
-└── README.md                # You are here
+│   └── exception.py
+├── Dockerfile                 # For containerization
+├── .dockerignore              # Ignore unneeded files in Docker
+├── requirements.txt           # Python dependencies
+├── render.yaml                # For Render cloud deployment
+└── README.md
 ```
 
 ---
 
-## Technologies Used
+##  ML Pipeline Modules
 
-| Task             | Tools/Tech                           |
-| ---------------- | ------------------------------------ |
-| EDA & Modeling   | Python, Pandas, Matplotlib, Seaborn  |
-| ML Algorithms    | Sklearn, XGBoost, LightGBM, CatBoost |
-| Web Deployment   | Flask                                |
-| Containerization | Docker                               |
-| Cloud Hosting    | Render Cloud                         |
-
----
-
-## UI Preview
-
-> Real-time prediction form hosted on Render: accepts 13 loan features and returns interest rate prediction
+| Module                | Function/Class                  | Purpose                            |
+| --------------------- | ------------------------------- | ---------------------------------- |
+| `data_ingestion`      | `DataIngestion`                 | Load and split raw data            |
+| `data_transformation` | `DataTransformation`            | Preprocess, scale, and encode data |
+| `model_trainer`       | `ModelTrainer`                  | Train and evaluate models          |
+| `predict_pipeline`    | `CustomData`, `PredictPipeline` | Prepare input and predict          |
+| `utils.py`            | `save_object`, `load_object`    | Serialize model + evaluation logic |
 
 ---
 
-## How to Run Locally
+##  Flask Web Interface
+
+* Collect user inputs via form
+* Predicts interest rate using the best trained model
+* Displays result directly on the browser
+
+📸 **Flask UI**
+
+![data_entry](https://github.com/user-attachments/assets/6c4988ea-8697-44df-b668-d9c5eb8e9841)
+![Result](https://github.com/user-attachments/assets/cf9b507e-16f1-4383-b430-fd8c539db115)
+
+---
+
+## Dockerization
+
+* Dockerfile created to containerize the Flask app
+* Built image:
 
 ```bash
-# Clone the repository
-https://github.com/Tiwari666/LR_BANKLOAN.git
-
-# Navigate to project folder
-cd LR_BANKLOAN
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run Flask app
-cd FlaskApp
-python app.py
-
-# Visit
-http://127.0.0.1:5000/
-```
-
----
-
-## Docker Deployment
-
-```bash
-# Build Docker image
 docker build -t loan-predictor-app .
-
-# Run Docker container
 docker run -p 5000:5000 loan-predictor-app
 ```
+
+ **Docker Running Screenshot**
+
+
+![Docker_predicted_interest_rate](https://github.com/user-attachments/assets/b2f03338-c337-4782-94c4-a4162151bafa)
+![Docker_data_interest_rate_prediction_combo](https://github.com/user-attachments/assets/8f7bad30-ee9e-4093-ae48-e894a37e6949)
+
+
 
 ---
 
 ## Cloud Deployment via Render
 
-* Pushed project to GitHub
-* Added `render.yaml`
-* Connected repo with Render
-* Auto-deployed using Dockerfile setup
-* Public URL: \[Your Render App Link Here]
+* `render.yaml` used for automated deployment
+* Connected GitHub repo to Render
+* Live prediction on public URL
+
+ **Render Deployed App Screenshot**
+
+![Render_form](https://github.com/user-attachments/assets/00d7caca-20e2-4d39-9d97-43234a385355)
+![render_deployment](https://github.com/user-attachments/assets/441057fc-e9dd-46e2-b6a7-4c3a35e6f9f7)
 
 ---
 
-##  Sample Input
+##  Highlights
 
-```
-amount_requested: 12000
-amount_funded_by_investors: 11500
-loan_length: 36
-debt_to_income_ratio: 0.18
-monthly_income: 4200
-fico_range: 710
-open_credit_lines: 7
-revolving_credit_balance: 3200
-inquiries_in_the_last_6_months: 1
-home_ownership: RENT
-loan_purpose_grouped: DEBTCONSOLIDATION
-state_region: WEST
-employment_length_group: 2
+*  End-to-End ML lifecycle completed
+*  Docker & Cloud deployment ready
+*  Model evaluation + hyperparameter tuning
+*  Robust data cleaning pipeline
+
+---
+
+##  Requirements
+
+```bash
+flask
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+catboost
+seaborn
+matplotlib
 ```
 
 ---
 
-##  Best Performing Model
+##  Future Enhancements
 
-```
-CatBoost Regressor:
-R² = 0.6829
-Adjusted R² = 0.6646
-MAE = 1.708
-```
+* Add more models (e.g., neural networks)
+* CI/CD integration with GitHub Actions
+* Input validation & UI improvements
+* Logging and monitoring
 
 ---
 
 ##  Author
 
 **Narendra Tiwari**
-Data Science Enthusiast
-[GitHub Profile](https://github.com/Tiwari666)
+ [GitHub Profile](https://github.com/Tiwari666)
 
 ---
 
-## Contributions & Feedback
-
-Have suggestions or improvements? Feel free to raise issues or pull requests.
-
->  Thanks for checking out the project!
-
- 
+**Thanks for visiting!** 
