@@ -1,0 +1,18 @@
+# Sample render.yaml for Flask + Docker
+services:
+  - type: web
+    name: LR_BANKLOAN
+    env: docker
+    plan: free
+    branch: main
+    rootDir: .
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+
+
+
+
+# cd path/to/LR_BankLoan  # go to your project root
+#git add render.yaml
+#git commit -m "Add render.yaml for Render deployment"
+#git push origin main
