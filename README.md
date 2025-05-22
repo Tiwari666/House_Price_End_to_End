@@ -1,5 +1,3 @@
-## Linear Regression Bank Loan
-
 ## Linear Regression Bank Loan: Loan Interest Rate Prediction Web App
 
 A full end-to-end machine learning project that predicts **loan interest rates** based on applicant data. Built using **Python**, **Scikit-learn**, and deployed via **Flask**, **Docker**, and **Render Cloud**.
